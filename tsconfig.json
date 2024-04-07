@@ -1,5 +1,12 @@
 {
   "compilerOptions": {
+    "baseUrl": "src/",
+    "paths": {
+      "@/styles/*": ["styles/*"],
+      "@/components/*": ["components/*"],
+      "@/database/*": ["database/*"],
+      "@/models/*": ["models/*"]
+    },
     "lib": [
       "dom",
       "dom.iterable",

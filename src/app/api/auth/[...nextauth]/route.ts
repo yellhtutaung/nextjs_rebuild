@@ -4,18 +4,19 @@ import {CredentialsProvider} from "next-auth/providers/credentials";
 // import GoogleProvider from "next-auth/providers/google";
 
 // @ts-ignore
-const authOptions: NextAuthOptions = {
+let authOptions: AuthOptions;
+authOptions = {
     providers: [
         CredentialsProvider({
             // The name to display on the sign in form (e.g. "Sign in with...")
             name: "Credentials",
             credentials: {
-                username: { label: "Username", type: "text", placeholder: "jsmith" },
-                password: { label: "Password", type: "password" }
+                username: {label: "Username", type: "text", placeholder: "jsmith"},
+                password: {label: "Password", type: "password"}
             },
             async authorize(credentials, req) {
                 // Add logic here to look up the user from the credentials supplied
-                const user = { id: "1", name: "J Smith", email: "jsmith@example.com" }
+                const user = {id: "1", name: "J Smith", email: "jsmith@example.com"}
             }
         }),
         // GoogleProvider({
@@ -32,7 +33,7 @@ const authOptions: NextAuthOptions = {
 
     ],
 
-}
+};
 
 const handler = NextAuth(authOptions)
 export { handler as GET, handler as POST }
